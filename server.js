@@ -1,14 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
+
 
 // opens the server that the application will be working on the local host
 const PORT = process.env.PORT || 3000;
 
-const app = express();
-app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.engine("handlebars", exphbs({
+    defaultlayout: "main"
+}));
 
-const exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.set("view engine", "handlebars");
+
+app.use(routes);
+
+app.listen(PORT, function () {
+    console.log("Listening on Port: " + PORT);
+});
