@@ -1,6 +1,22 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
+const express = require("express");
+const bodyParser = require("body-parser");
+const exphbs = require("express-handlebars");
+let mysql = require("mysql");
+
+let connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "root000yes",
+    database: "burgers_db"
+});
+
+// connect to mysql 
+
+connection.connect(function(err) {
+    if (err) throw err;
+    startPrompt();
+});
+
 
 
 // opens the server that the application will be working on the local host
