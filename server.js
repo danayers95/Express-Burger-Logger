@@ -1,21 +1,10 @@
+// require express, express-handlebars and body-parser
 const express = require("express");
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
-let mysql = require("mysql");
 
-let connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root000yes",
-    database: "burgers_db"
-});
-
-// connect to mysql 
-
-connection.connect(function(err) {
-    if (err) throw err;
-    startPrompt();
-});
+//calls express
+const app = express();
 
 
 
