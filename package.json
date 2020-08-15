@@ -2,7 +2,7 @@
   "name": "express-burger-logger",
   "version": "1.0.0",
   "description": "Application that allows a user to create a name for their own burger, which adds that name to the list of burgers available to be eaten. Eaten burgers show up to the side. Using express, MySQL, Node.js, and Handlebars.",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/danglayers/Express-Burger-Logger#readme",
   "dependencies": {
+    "bootstrap": "^4.5.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "express-router": "0.0.1",
