@@ -1,22 +1,30 @@
 // Require express, express-handlebars and body-parser
 const express = require("express");
-const bodyParser = require("body-parser");
-const exphbs = require("express-handlebars");
+const router = require("./controllers/burgers_controller.js");
+const handlebars = require("express-handlebars");
 
 // Calls express
 const app = express();
 
-// Parse application
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+const PORT = process.env.PORT || 3000;
+
+app.use(express.static("public"));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Set up handlebars
-app.engine("handlebars", exphbs({defaultlayout: "main"}));
+app.engine(
+    "handlebars", 
+    handlebars({ 
+        layoutsDir: __dirname + "/views/layouts",
+    })
+);
 app.set("view engine", "handlebars");
 
-const router = require("./controllers/burger_controller.js");
-app.use("/", router);
+app.use('/', router);
 
 // Opens server on localhost 
-const port = process.env.PORT || 3000;
-app.listen(port);
+app.listen(PORT, () => {
+    console.log("Listening on localhost: " + PORT);
+});
