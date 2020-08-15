@@ -1,5 +1,5 @@
 // imports connection.js into orm.js
-const connection = require("../config/connection.js");
+const connection = require("./config/connection.js");
 
 connection.connect(function(err) {
     if (err) {
