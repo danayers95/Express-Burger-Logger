@@ -1,14 +1,6 @@
 // imports connection.js into orm.js
 const connection = require("./connection.js");
 
-function printQuestionMarks(num) {
-    let arr = [];
-    for (let i = 0; i < num; i++) {
-        arr.push("?");
-    }
-    return arr.toString();
-}
-
 function objToSql(ob) {
     let arr = [];
 
@@ -23,6 +15,16 @@ function objToSql(ob) {
     }
     return arr.toString();
 }
+
+
+function printQuestionMarks(num) {
+    let arr = [];
+    for (let i = 0; i < num; i++) {
+        arr.push("?");
+    }
+    return arr.toString();
+}
+
 
 const orm = {
     all: function (tableInput, cb) {
@@ -74,7 +76,7 @@ module.exports = orm;
 
 
 
-
+// nope. didn't work.
 /* connection.connect(function(err) {
     if (err) {
         console.error("error connecting: " + err.stack);
