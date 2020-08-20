@@ -1,8 +1,7 @@
-USE burgers_db;
 
-INSERT INTO burgers (burger_name) VALUES ("Double Cheeseburger");
-INSERT INTO burgers (burger_name) VALUES ("Vegan Burger");
-INSERT INTO burgers (burger_name) VALUES ("Chili Burger");
-INSERT INTO burgers (burger_name) VALUES ("Jalapeno Burger");
-INSERT INTO burgers (burger_name) VALUES ("Triple Cheeseburger");
-INSERT INTO burgers (burger_name) VALUES ("Southwest Burger");
+INSERT INTO burgers (burger_name, devoured) VALUES ("Double Cheeseburger", false);
+INSERT INTO burgers (burger_name, devoured) VALUES ("Vegan Burger", false);
+INSERT INTO burgers (burger_name, devoured) VALUES ("Chili Burger", false);
+INSERT INTO burgers (burger_name, devoured) VALUES ("Jalapeno Burger", false);
+INSERT INTO burgers (burger_name, devoured) VALUES ("Triple Cheeseburger", false);
+INSERT INTO burgers (burger_name, devoured) VALUES ("Southwest Burger", false);
