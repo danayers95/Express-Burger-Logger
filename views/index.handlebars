@@ -1,30 +1,29 @@
-<h1>Eat da Burger!</h1>
-
-<h2> Burgers Left to Eat</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    {{> burger-block devoured=false}}
-    {{/unless}}
-    {{/each}}
-</ul>
-
-<h2> Burgers eaten so far:</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    {{> burger-block devoured=true}}
-    {{/if}}
-    {{/each}}
-</ul>
-
-<h2> Add a Burger! </h2>
-<form class="create-form">
-    <div class="form-group">
-        <label for="burger">Burger Name: </label>
-        <input type="text" id="burger" name="name">
+<div class="container">
+    <div class="jumbotron" id="jumbo">
+        <h1>Eat da Burger!</h1>
+        <img src="/public/assets/burgerimg.jpg" alt="Burger" width="140px" class="center">
+        <h2>Make your own burger to devour!</h2>
     </div>
-    <button type="submit">Add Burger</button>
-</form>
+
+    <panel>
+        <form class="create-form">
+            <div class="form-group">
+                <label for="newburger">Create a burger</label>
+                <input type="text" id="newburger" name="burger">
+                <button type="submit" class="btn btn-success" id="addburger">
+                    <span class="fa fa-credit-card"></span>
+                </button>
+            </div>
+        </form>
+    </panel>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="leftside"><strong>Order a burger</strong></div>
+            <div class="panel-body">
+                
+            </div>
+        </div>
+    </div>
+</div>
