@@ -22,7 +22,36 @@
         <div class="panel panel-default">
             <div class="panel-heading" id="leftside"><strong>Order a burger</strong></div>
             <div class="panel-body">
-                
+                <ul>
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    <li>
+                        <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                        <button type="button" class="devour-burger btn btn-warning" id="eatbtn" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fa fa-cutlery"></span>Eat da burger!</button>
+                    </li>
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="rightsd"><strong>Devour!</strong></div>
+            <div class="panel-body">
+                <ul>
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    <li>
+                        <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                        <button type="button" class="delete-burger btn btn-danger" id="deletebtn"
+                            data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-hand-spock-o"></span>
+                            Delete burgers</button>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
             </div>
         </div>
     </div>
