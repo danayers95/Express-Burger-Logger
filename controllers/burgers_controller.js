@@ -5,38 +5,51 @@ const burger = require("../models/burger.js");
 // Routes
 
 router.get("/", (req, res) => {
-    burger.all((data) => {
+    burger.selectAll((data) => {
         const hbsObject = {
             burgers: data,
         };
-        console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 
-router.post("/api/cats", (req, res) => {
-    burger.create(
+// add a burger to the database
+router.post("/api/burgers", (req, res) => {
+    burger.insertOne(
         ["burger_name", "devoured"],
-        [req.body.name, req.body.devoured],
+        [req.body.burger_name, req.body.devoured],
         (result) => {
-            res.json({ id: result.insertID });
+            res.json({ id: result.insertId });
         }
     );
 });
 
-router.put("/api/cats/:id", (req, res) => {
+// update burger by id to be devoured
+router.put("/api/burgers/:id", (req, res) => {
     const condition = "id = " + req.params.id;
 
-    console.log("condition", condition);
-    burger.update({ devoured: req.body.devoured }, condition, (result) => {
+    
+    burger.updateOne({ devoured: req.body.devoured }, condition, (result) => {
         if (result.changedRows === 0) {
             return res.status(404).end();
+        } else {
+            res.status(200).end();
         }
-        res.status(200).end();
     });
 });
 
-// Export the routes for server.js
+// delete burger
+router.delete("/api/burgers/:id", (req, res) => {
+    let condition = "id = " + req.params.id;
+
+    burger.delete(condition, (result) => {
+        if (result.affectedRows === 0) {
+            return res.status(404).end();
+        }
+    });
+});
+
+// Export the router to server.js
 module.exports = router;
 
 
