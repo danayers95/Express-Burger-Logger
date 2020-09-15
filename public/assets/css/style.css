@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite;
+    font-size: 18px;
+    line-height: 30px;
+    color: #777777;
+    margin: 0px, 0px;
+}
+
+#jumbo {
+    background: opaque;
+    padding: 0px 0px 0px 0px;
+}
+
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+.form-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+li {
+    padding: 5px;
+    margin: 5px;
+    background: #faebd7;
+}
+label {
+    margin-right: 20px;
+}
+#newBurger {
+    margin-right: 30px;
+    height: 30px;
+    width: 300px;
+}
+#addBurger {
+    width: 150px;
+    height: 36px;
+    
+}
+strong {
+    margin-right: 20px;
+}
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.panel {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img {
+    border-radius: 10px;
+}
